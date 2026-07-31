@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculator</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; }
+      .calculator { width: 320px; border: 1px solid #ddd; border-radius: 8px; padding: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+      .display { height: 56px; border: 1px solid #eee; border-radius: 6px; margin-bottom: 12px; padding: 10px; font-size: 28px; text-align: right; overflow: hidden; }
+      .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 8px; }
+      button { padding: 12px; font-size: 16px; border-radius: 6px; border: 1px solid #ddd; background: #f8f8f8; cursor: pointer; }
+      button.op { background: #f0f7ff; }
+      button.equals { background: #ffeab6; }
+      button:active { transform: translateY(1px); }
+    </style>
+  </head>
+  <body>
+    <div class="calculator" role="application" aria-label="Calculator">
+      <div id="display" class="display" aria-live="polite">0</div>
+
+      <div class="row">
+        <button id="btn-clear" aria-label="Clear">AC</button>
+        <button data-key="Backspace" aria-label="Backspace">⌫</button>
+        <button data-op="%" class="op" aria-label="Percent">%</button>
+        <button data-op="/" class="op" aria-label="Divide">÷</button>
+      </div>
+      <div class="row">
+        <button data-digit="7">7</button>
+        <button data-digit="8">8</button>
+        <button data-digit="9">9</button>
+        <button data-op="*" class="op" aria-label="Multiply">×</button>
+      </div>
+      <div class="row">
+        <button data-digit="4">4</button>
+        <button data-digit="5">5</button>
+        <button data-digit="6">6</button>
+        <button data-op="-" class="op" aria-label="Minus">−</button>
+      </div>
+      <div class="row">
+        <button data-digit="1">1</button>
+        <button data-digit="2">2</button>
+        <button data-digit="3">3</button>
+        <button data-op="+" class="op" aria-label="Plus">+</button>
+      </div>
+      <div class="row">
+        <button data-digit="0" style="grid-column: span 2;">0</button>
+        <button data-dot=".">.</button>
+        <button id="btn-equals" class="equals" aria-label="Equals">=</button>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
