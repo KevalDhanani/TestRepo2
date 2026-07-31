@@ -7,7 +7,7 @@
 // - categoryId: references Category.id
 export interface Expense {
   id: string;
-  amount: number;
+  amount: number; // in display currency units
   date: string; // ISO date (YYYY-MM-DD)
   categoryId: string;
   description?: string;
@@ -20,6 +20,7 @@ export interface Category {
   id: string;
   name: string;
   color?: string; // optional HEX color for charts/UI
+  protected?: boolean; // system-protected cannot be deleted/renamed
   createdAt?: string;
   updatedAt?: string;
 }
@@ -39,7 +40,7 @@ export interface Budget {
 // Filters used by selectors/UI to query expenses.
 export interface ExpenseFilter {
   dateFrom?: string; // inclusive, YYYY-MM-DD
-  dateTo?: string;   // inclusive, YYYY-MM-DD
+  dateTo?: string; // inclusive, YYYY-MM-DD
   categoryIds?: string[];
   minAmount?: number;
   maxAmount?: number;
